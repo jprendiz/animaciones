@@ -13,7 +13,14 @@
             display: grid;
             place-items: center;
             font-family: 'Lakki Reddy', cursive;
+
+            counter-reset: score;
         }
+
+        input:checked{
+            counter-increment: score;
+        }
+        
         .phone {
             width: 300px;
             height: 600px;
@@ -24,12 +31,19 @@
             position: relative;
             display: grid;
             justify-content: center;
+            grid-template-rows: 80px 40px;
         }
 
         .titulo {
             font-size: 28px;
             margin-top: 44px;
             color: #b66421;
+        }
+        
+        h3 {
+            margin-top: 80px;
+            color: #b66421;
+            margin: auto;
         }
 
         .layer-1{
@@ -40,7 +54,25 @@
             background: none;
             bottom: 0;
             left: 60px;
+
+            animation-name: bunny_1;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
+
+        @keyframes bunny_1 {
+            0% {
+                bottom: 0px;
+            }
+            50% {
+                bottom: -80px;
+            }
+            100% {
+                bottom: 0px;
+            }
+        }
+
         .layer-2{
             position: absolute;
             z-index: 2;
@@ -49,6 +81,23 @@
             background: none;
             bottom: 0;
             right: 60px;
+
+            animation-name: bunny_2;
+            animation-duration: 2s;
+            animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bunny_2 {
+            0% {
+                bottom: 0px;
+            }
+            50% {
+                bottom: -80px;
+            }
+            100% {
+                bottom: 0px;
+            }
         }
         .layer-3{
             position: absolute;
@@ -71,6 +120,22 @@
             background: none;
             bottom: 0;
             left: 24px;
+
+            animation-name: bunny_3;
+            animation-duration: 3s;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation-iteration-count: infinite;
+        }
+        @keyframes bunny_3 {
+            0% {
+                bottom: 0px;
+            }
+            50% {
+                bottom: -80px;
+            }
+            100% {
+                bottom: 0px;
+            }
         }
         .layer-5{
             position: absolute;
@@ -90,6 +155,23 @@
             background: none;
             bottom: 0;
             right: 32px;
+
+            animation-name: bunny_4;
+            animation-duration: 1.5s;
+            animation-timing-function: cubic-bezier(1, 0, 0, 1);
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes bunny_4 {
+            0% {
+                bottom: 0px;
+            }
+            50% {
+                bottom: -80px;
+            }
+            100% {
+                bottom: 0px;
+            }
         }
         .layer-7{
             position: absolute;
@@ -175,9 +257,26 @@
             width: 4px;
             height: 4px;
             border-radius: 50%;
-            background: rgb(112, 112, 112);
+            background: gray;
+
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
         }
 
+        @keyframes blink {
+            0% {
+                height: 4px;
+            }
+            5% {
+                transform: translate(0px, 2px);
+                height: 1px;
+            }
+            15% {
+                transform: translate(0px, 0px);
+                height: 4px;
+            }
+        }
         .head__eye--left {
             position: absolute;
             left: 30px;
@@ -196,11 +295,11 @@
             height: 36px;
             margin: auto;
 
-            background: linear-gradient(-135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px, 
-                        linear-gradient(135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px,
-                        linear-gradient(45deg, #b66421 25%, transparent 25%) 0px,
-                        linear-gradient(-45deg, #b66421 25%, transparent 25%) 0px; 
-            background-size: 33px 36px;
+            background: linear-gradient(-135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px 0, 
+                        linear-gradient(135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px 0,
+                        linear-gradient(45deg, #b66421 25%, transparent 25%),
+                        linear-gradient(-45deg, #b66421 25%, transparent 25%); 
+            background-size: 36px 36px;
             background-color: #673914;
             position: absolute;
             top: 15px;
@@ -284,13 +383,37 @@
             border-radius: 20px;
             bottom: 0;
         }
+
+        /* checkboxes */
+        input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            height: 50px;
+            margin: 0;
+            position: relative;
+            top: 0;
+            width: 80px;
+            z-index:2;
+        }
+        input[type=checkbox]:focus {
+            appearance: none;
+            outline: none;
+        }
+        input:checked {
+            counter-increment: score;
+        }
+        
+        .score::after {
+            content: counter(score);
+        }
     </style>
 </head>
 <body>
     <div class="phone">
-        <div class="titulo">Animationland</div>
+        
         <!-- bunny 1 -->
         <div class="layer-1">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -302,6 +425,7 @@
         </div> 
         <!-- bunny 2 -->
         <div class="layer-2">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -320,6 +444,7 @@
 
         <!-- bunny 3 -->
         <div class="layer-4">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -338,6 +463,7 @@
 
         <!-- bunny 4 -->
         <div class="layer-6">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -372,6 +498,9 @@
             <div class="nube-inferior__2"></div>
             <div class="nube-superior__2"></div>
         </div>
+
+        <div class="titulo">Animationland</div>
+        <h3 class="score">Score: </h3>
     </div>
 </body>
 </html>

@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            margin: 0px;
+            box-sizing: border-box;
+            padding: 0px;
+        }
         .wall {
-            width: 220px;
-            height: 400px;
-            border-radius: 20px;
-            background: #b66421;
+            width: 600px;
+            height: 600px;
+            border: 1px solid black;
             position: relative;
             margin: auto;
         }
         .grass {
             width: 100%;
-            height: 36px;
+            height: 100vh;
             margin: auto;
-
-            background: linear-gradient(-135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px, 
-                        linear-gradient(135deg, rgb(100, 166, 100) 25%, transparent 25%) -18px,
-                        linear-gradient(45deg, #b66421 25%, transparent 25%) 0px,
-                        linear-gradient(-45deg, #b66421 25%, transparent 25%) 0px; 
-            background-size: 33px 36px;
-            background-color: #673914;
+            background: linear-gradient(-135deg, teal 5%, #EF6262 20%,  #F3AA60 25%, transparent 25%) -50px 0, linear-gradient(135deg, teal 5%, #EF6262 20% ,#F3AA60 25%, transparent 25%) -50px 0, linear-gradient(45deg, teal 5%,#EF6262 20% , #F3AA60 25%, transparent 25%), linear-gradient(-45deg,#F3AA60 5%, teal 20%, #EF6262 25%, transparent 25%);
             position: absolute;
-            top: 15px;
+            background-size: 100px 100px;
         }
         .green {
             width: 100%;
@@ -37,7 +35,6 @@
 </head>
 <body>
     <div class="wall">
-        <div class="green"></div>
         <div class="grass"></div>
     </div>
 </body>
